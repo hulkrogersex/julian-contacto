@@ -1,1 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="Página de contacto de Julian Nelson">
+  <title>Julian Nelson | Contacto</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(145deg,#0b1020,#1b2235);color:#fff;padding:24px}
+    .wrap{width:min(520px,100%);margin:auto}
+    .card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:28px;padding:28px 20px;backdrop-filter:blur(12px);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+    .avatar{width:96px;height:96px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#ff7a18,#af002d 70%);font-size:30px;font-weight:900;border:3px solid rgba(255,255,255,.8)}
+    h1{text-align:center;font-size:30px;margin:0 0 6px}
+    .subtitle{text-align:center;color:#cbd5e1;margin:0 0 22px}
+    .links{display:grid;gap:12px}
+    .btn{min-height:62px;width:100%;display:flex;align-items:center;justify-content:space-between;padding:0 18px;border-radius:18px;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.08);font-size:16px;font-weight:800;transition:.15s}
+    .btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.13)}
+    .left{display:flex;align-items:center;gap:13px}
+    .ico{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:rgba(255,255,255,.1);font-size:21px}
+    .arrow{font-size:25px;color:#cbd5e1}
+    .share{margin-top:14px;min-height:62px;width:100%;border:0;border-radius:18px;background:linear-gradient(135deg,#ff7a18,#af002d);color:#fff;font-size:16px;font-weight:900;cursor:pointer}
+    .status{text-align:center;min-height:22px;margin-top:12px;color:#cbd5e1;font-size:13px}
+    footer{text-align:center;color:#94a3b8;font-size:12px;margin-top:18px}
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <section class="card">
+    <div class="avatar" aria-hidden="true">JN</div>
+    <h1>Julian Nelson</h1>
+    <p class="subtitle">Conecta conmigo ✨</p>
+
+    <div class="links">
+      <a class="btn" href="https://wa.me/573223166576" target="_blank" rel="noopener">
+        <span class="left"><span class="ico">📱</span>WhatsApp</span><span class="arrow">›</span>
+      </a>
+      <a class="btn" href="https://services.zangi.com/dl/conversation/6916521043" target="_blank" rel="noopener">
+        <span class="left"><span class="ico">💬</span>Zangi</span><span class="arrow">›</span>
+      </a>
+      <a class="btn" href="https://www.tiktok.com/@bjulian.nelson?_r=1&_t=ZS-99fz8hrPZWX" target="_blank" rel="noopener">
+        <span class="left"><span class="ico">🎵</span>TikTok</span><span class="arrow">›</span>
+      </a>
+      <a class="btn" href="https://www.xfree.com/hulkrogersex?utm_source=xfree&utm_medium=feed&utm_campaign=copylink" target="_blank" rel="noopener">
+        <span class="left"><span class="ico">🔗</span>XFree</span><span class="arrow">›</span>
+      </a>
+    </div>
+
+    <button class="share" id="share" type="button">📤 Compartir mi página</button>
+    <div class="status" id="status" aria-live="polite"></div>
+  </section>
+  <footer>Julian Nelson · Página de contacto</footer>
+</main>
+
+<script>
+(function(){
+  const button=document.getElementById('share');
+  const status=document.getElementById('status');
+
+  button.addEventListener('click',async function(){
+    const shareData={
+      title:'Julian Nelson | Contacto',
+      text:'Conecta conmigo ✨',
+      url:window.location.href
+    };
+
+    if(navigator.share){
+      try{
+        await navigator.share(shareData);
+        status.textContent='Página compartida correctamente.';
+      }catch(err){
+        if(err.name!=='AbortError') status.textContent='No se pudo abrir el menú de compartir.';
+      }
+      return;
+    }
+
+    try{
+      await navigator.clipboard.writeText(window.location.href);
+      status.textContent='Enlace copiado. Ya puedes pegarlo donde quieras.';
+    }catch(err){
+      status.textContent='Copia el enlace desde la barra del navegador.';
+    }
+  });
+})();
+</script>
+</body>
+</html>
 
